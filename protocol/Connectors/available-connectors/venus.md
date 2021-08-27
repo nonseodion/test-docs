@@ -8,7 +8,7 @@ Venus Connector is deployed at 0xB03308Fa6A1Ecb489ECC86B7e930491020ee2b96 on mai
 
 ## Code
 
-[main.sol](../contracts/connectors/venus/main.sol)
+[main.sol](https://github.com/Open-Currency-Collective/Nubian-dsa-connectors/blob/master/contracts/connectors/venus/main.sol)
 
 ## Events
 

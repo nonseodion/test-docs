@@ -28,7 +28,7 @@ Emitted wheb there is a withdrawal with [Withdraw](#Withdraw) or [Harvest](#Harv
 
 ## Code
 
-[main.sol](../contracts/connectors/autofarm/main.sol)
+[main.sol](https://github.com/Open-Currency-Collective/Nubian-dsa-connectors/blob/master/contracts/connectors/autofarm/main.sol)
 
 ## Read-only methods.
 

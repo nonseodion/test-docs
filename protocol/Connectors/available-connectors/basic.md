@@ -8,7 +8,7 @@ Basic Connector is deployed at 0xC2e1c0fc0A2c0126AD5222D6eB2453c6aEc1e637 on mai
 
 ## Code
 
-[main.sol](../contracts/connectors/basic/main.sol)
+[main.sol](https://github.com/Open-Currency-Collective/Nubian-dsa-connectors/blob/master/contracts/connectors/basic/main.sol)
 
 ## Events
 

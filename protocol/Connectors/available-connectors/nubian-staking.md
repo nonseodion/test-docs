@@ -8,7 +8,7 @@ Nubian_staking Connector is deployed at 0x0764C090a14E45Ae23F69732BeB28504f89D66
 
 ## Code
 
-[main.sol](../contracts/connectors/nubian_staking/main.sol)
+[main.sol](https://github.com/Open-Currency-Collective/Nubian-dsa-connectors/blob/master/contracts/connectors/nubian_staking/main.sol)
 
 ## Events
 

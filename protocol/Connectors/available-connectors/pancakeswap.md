@@ -8,7 +8,7 @@ Pancakeswap Connector is deployed at 0x546bde105B24147bbd34F3147a0FD68961515Feb 
 
 ## Code
 
-[main.sol](../contracts/connectors/pancakeswap/main.sol)
+[main.sol](https://github.com/Open-Currency-Collective/Nubian-dsa-connectors/blob/master/contracts/connectors/pancakeswap/main.sol)
 
 ## Events
 
