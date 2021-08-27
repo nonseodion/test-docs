@@ -12,7 +12,7 @@ Pancakeswap Connector is deployed at 0x546bde105B24147bbd34F3147a0FD68961515Feb 
 
 ## Events
 
-Check [connectors.md](../readme.md) to know how to listen for events emitted.
+<!-- Check [connectors.md](../events.md) to know how to listen for events emitted. -->
 
 ### LogDepositLiquidity
 

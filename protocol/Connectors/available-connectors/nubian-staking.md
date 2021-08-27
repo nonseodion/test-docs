@@ -12,7 +12,7 @@ Nubian_staking Connector is deployed at 0x0764C090a14E45Ae23F69732BeB28504f89D66
 
 ## Events
 
-Check [connectors.md](../readme.md) to know how to listen for events emitted.
+<!-- Check [connectors.md](../events.md) to know how to listen for events emitted. -->
 
 ### LogDeposit
 

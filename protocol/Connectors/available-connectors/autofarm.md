@@ -8,7 +8,7 @@ Autofarm connector is deployed at 0x82aB4bCD90E99f31a90201669AACC6867c9c3B77 on 
 
 ## Events
 
-Check [connectors.md](../readme.md) to know how to listen for events emitted.
+<!-- Check [connectors.md](../events.md) to know how to listen for events emitted. -->
 
 ### LogDeposit
 

@@ -12,7 +12,7 @@ Basic Connector is deployed at 0xC2e1c0fc0A2c0126AD5222D6eB2453c6aEc1e637 on mai
 
 ## Events
 
-Check [connectors.md](../readme.md) to know how to listen for events emitted.
+<!-- Check [connectors.md](../events.md) to know how to listen for events emitted. -->
 
 ### LogDeposit
 

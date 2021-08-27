@@ -12,7 +12,7 @@ Venus Connector is deployed at 0xB03308Fa6A1Ecb489ECC86B7e930491020ee2b96 on mai
 
 ## Events
 
-Check [connectors.md](../readme.md) to know how to listen for events emitted.
+<!-- Check [connectors.md](../events.md) to know how to listen for events emitted. -->
 
 ### LogDeposit
 
