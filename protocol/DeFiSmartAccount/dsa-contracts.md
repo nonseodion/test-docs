@@ -8,8 +8,8 @@ sidebar_position: 2
 
 The core contracts enable the DSA to perform its two core functions, execute function calls and update account extensions. They are:
 
-- [**NbnAccountV2**]: Executes all function calls to the DSA.
-- [**NbnImplementations**]: Adds, removes and stores the list of account extensions.
+- **NbnAccountV2**: Executes all function calls to the DSA.
+- **NbnImplementations**: Adds, removes and stores the list of account extensions.
 
 ## Account Extensions
 

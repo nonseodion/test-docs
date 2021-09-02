@@ -12,13 +12,15 @@ NbnImplementations is deployed on [mainnet](https://bscscan.com/address/0x27361F
 
 ## Events
 
+### LogSetDefaultImplementation
+
 ```solidity
 event LogSetDefaultImplementation(address indexed oldImplementation, address indexed newImplementation);
 ```
 
 Setting a new default implementation emits this event.
 
-### Parameter
+### LogAddImplementation
 
 ```solidity
 event LogAddImplementation(address indexed implementation, bytes4[] sigs);
@@ -26,7 +28,7 @@ event LogAddImplementation(address indexed implementation, bytes4[] sigs);
 
 This event is emitted when an implementation is added.
 
-### Parameter
+### LogRemoveImplementation
 
 ```solidity
 event LogRemoveImplementation(address indexed implementation, bytes4[] sigs);
@@ -50,13 +52,13 @@ Returns the address of the default account extension.
 function getImplementation(bytes4 _sig) external view returns (address);
 ```
 
+Returns the address of an account extension that has a function with it's function signature as _sig or the default implementation if no account extension implements it.
+
 #### Parameter
 
 | Parameter | Type | Description
 | --- | --- | --- |
-| _sig | `bytes4` | Signature of the function whose implementation contract is being requested. |
-
-Returns the address of an account extension that implements _sig or the default implementation if no account extension implements it.
+| _sig | `bytes4` | Signature of the function. |
 
 ### GetImplementationSigs
 
@@ -64,23 +66,21 @@ Returns the address of an account extension that implements _sig or the default 
 function getImplementationSigs(address _impl) external view returns (bytes4[] memory);
 ```
 
-Returns all the function signatures of an account extension.
+Returns all the function signatures of _impl.
 
 #### Parameter
 
 | Parameter | Type | Description
 | --- | --- | --- |
-| _impl | `address` | ignature of the function whose implementation contract is being requested. |
+| _impl | `address` | Address of the extension. |
 
 ### GetSigImplementation
 
 ```solidity
-function getSigImplementation(bytes4 _sig) external view returns (address) {
-    return sigImplementations[_sig];
-}
+function getSigImplementation(bytes4 _sig) external view returns (address);
 ```
 
-Returns the address of an account extension that implements _sig.
+Returns the address of an account extension that has a function with it's function signature as _sig or the null address if no extension has it.
 
 | Parameter | Type | Description
 | --- | --- | --- |
@@ -91,10 +91,10 @@ Returns the address of an account extension that implements _sig.
 ### SetDefaultImplementation
 
 ```solidity
-function setDefaultImplementation(address _defaultImplementation) external isMaster
+function setDefaultImplementation(address _defaultImplementation) external isMaster;
 ```
 
-Sets the default account extension which implements the most basic functionalities of the DeFi Smart Account (DSA) such as adding and removing authorities.
+Sets the default account extension which implements the most basic functionalities of the DeFi Smart Account (DSA) such as adding and removing authorities. It can only be called by the Master account, which is the account that controls nbnIndex.
 
 #### Parameter
 

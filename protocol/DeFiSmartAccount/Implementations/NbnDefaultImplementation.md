@@ -44,7 +44,7 @@ Returns the implementation version.
 address public immutable nbnIndex;
 ```
 
-Returns the address of the nbnIndex. The nbnIndex is used to create DSAs and assigns the first owner.
+Returns the address of the nbnIndex. nbnIndex is used to create DSAs and assigns the first owner in this owner.
 
 ### Version
 
@@ -60,7 +60,7 @@ Returns the version of the DSA contract.
 function isAuth(address user) public view returns (bool);
 ```
 
-Used to check if user has control over a DSA. It returns a boolean value, true if it is an authority false if otherwise.
+Used to check if user has control over a DSA. It returns a boolean value, true if it is an authority false otherwise.
 
 #### Parameters
 
@@ -96,4 +96,4 @@ Removes an address from the authorities of a DSA. The address must already be an
 
 | Parameter | Type | Description
 | --- | --- | --- |
-| user | `address` | The authority to be removed. |
+| user | `address` | The authority to remove. |
