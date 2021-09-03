@@ -1,6 +1,6 @@
 # NbnAccountV2
 
-Handles every function call to the smart contract. It is a proxy contract that routes function calls to the right implementation using the fallback function.
+This is the main DSA contract. It is a proxy contract that routes function calls to an extension using a fallback function.
 
 ## Address
 

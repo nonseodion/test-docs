@@ -4,7 +4,7 @@ Used to add and remove authorities, owners of a DeFi Smart Account (DSA). It is 
 
 ## Address
 
-Autofarm connector is deployed on [mainnet](https://bscscan.com/address/0xc9Fc01064Ad33ACaa4534dA4604Fd6602CEF873d).
+NbnDefaultImplementation is deployed on [mainnet](https://bscscan.com/address/0xc9Fc01064Ad33ACaa4534dA4604Fd6602CEF873d).
 
 ## Code
 

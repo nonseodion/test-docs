@@ -22,7 +22,7 @@ event LogCast(
 );
 ```
 
-Emitted whena spells are cast i.e when the [cast]{#Cast} is called. It combines all the events from each connector and emits them once. This saves gas cost and allows for a single point of reference.
+Emitted when spells are cast i.e when the [cast]{#Cast} is called. It combines all the events from each connector and emits them once. This saves gas cost and allows for a single point of reference.
 
 ## Code
 
@@ -80,14 +80,14 @@ Used to cast an individual spell by delegating to _target and passing the parame
 ### Cast{#Cast}
 
 ```solidity
-    function cast(
-        string[] calldata _targetNames,
-        bytes[] calldata _datas,
-        address _origin
-    )
-    external
-    payable
-    returns (bytes32)
+function cast(
+    string[] calldata _targetNames,
+    bytes[] calldata _datas,
+    address _origin
+)
+external
+payable
+returns (bytes32)
 ```
 
 It casts all the spells it receives using [spell](#Spell) and logs their events once using [LogCast](#LogCast).
