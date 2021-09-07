@@ -1,3 +1,8 @@
+---
+ sidebar_position: 2
+ label: "How to add a new connector"
+---
+
 # How to add a new connector
 
 You can create a new pull request (PR) to add a new connector. Your PR has to meet some requirements to get merged. We explain them here.

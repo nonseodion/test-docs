@@ -44,6 +44,14 @@ event LogNewAccount(address indexed _newAccount, address indexed _connectors, ad
 
 Emitted when a new account module is added.
 
+### LogAccountCreated
+
+```solidity
+event LogAccountCreated(address sender, address indexed owner, address indexed account, address indexed origin);
+```
+
+Emitted when a new Account is created.
+
 ## Read-only methods
 
 ### NewMaster
@@ -120,6 +128,31 @@ uint public versionCount;
 
 Returns the number of DSA versions available.
 
+### CreateClone
+
+```solidity
+  function createClone(uint version) internal returns (address result)
+```
+
+Creates a clone of version.
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| version | `uint` | Creates a clone of version _version_ of the account modules. |
+
+### IsClone
+
+```solidity
+function isClone(uint version, address query) external view returns (bool result)
+```
+
+Checks if account at _query_ is a clone of _version_.
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| version | `uint` | An account version to check against. |
+| query | `address` | Address of the account. |
+
 ## State-changing Methods
 
 ### ChangeMaster
@@ -143,3 +176,98 @@ function updateMaster() external
 ```
 
 This is called by newMaster to make itself the new master.
+
+### ChangeCheck
+
+```solidity
+function changeCheck(uint accountVersion, address _newCheck) external isMaster;
+```
+
+Changes the check address of a specific account Module version.
+
+#### Parameter
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| _accountVersion | `uint` | Account module version. |
+| _newCheck | `address` | The new check address. |
+
+### AddNewAccount
+
+```solidity
+function addNewAccount(address _newAccount, address _connectors, address _check) external isMaster 
+```
+
+Adds a new account module version.
+
+#### Parameters
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| _newAccount | `address` | The new address of the new account module. |
+| _newCheck | `address` | The new check address. |
+
+### Build{#Build}
+
+```solidity
+function build(
+    address _owner,
+    uint accountVersion,
+    address _origin
+) public returns (address _account);
+```
+
+Creates a new DSA of version _accountVersion_ with _\_owner_ as the owner.
+
+#### Parameters
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| _owner | `address` | Owner of the new DSA. |
+| accountVersion | `uint` | The version of the new DSA. |
+| _origin | `address` | The address to track the origin of transaction. Used for analytics and affiliates.. |
+
+### BuildWithCast
+
+```solidity
+function buildWithCast(
+        address _owner,
+        uint accountVersion,
+        address[] calldata _targets,
+        bytes[] calldata _datas,
+        address _origin
+    ) external payable returns (address _account) 
+```
+
+Creates a new DSA and cast spells.
+
+#### Parameters
+
+Check Build for the other parameters.
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| _targets | `address[]` | Addresses of connectors to be called in spell. |
+| \_datas | `bytes[]` | Data to be passed to corressponding connectors in  _\_targets_ array. |
+
+### SetBasics
+
+```solidity
+function setBasics(
+    address _master,
+    address _list,
+    address _account,
+    address _connectors
+) external ;
+```
+
+Sets up initial properties of the contract and can only be called once after the contract is deployed.
+
+#### Parameters
+
+| Parameter | Type | Description
+| --- | --- | --- |
+| _master | `address` | The master address. |
+| _list | `address` | The NbnList address. |
+| _account | `address` | The address of DSA version 1. |
+| _connectors | `address` | The connectors registry. Manages the available connectors. |
