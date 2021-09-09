@@ -18,7 +18,7 @@ NbnList is deployed on [mainnet](https://bscscan.com/address/0x58f4D59E4D4A97758
 function init(address  _account) external 
 ```
 
-Sets up initial configuration of a DSA.
+Gives a DSA its initial configuration.
 
 #### Parameter
 
