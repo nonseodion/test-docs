@@ -1,6 +1,6 @@
 # NbnDefaultImplementation
 
-Used to add and remove authorities, owners of a DeFi Smart Account \(DSA\). It is called to add the new owner when a DSA is created.
+Used to add and remove authorities, owners of a DeFi Smart Account \(DSA\). It is used by NbnIndex to add the new owner when a DSA is created.
 
 ## Address
 
@@ -44,7 +44,7 @@ Returns the implementation version.
 address public immutable nbnIndex;
 ```
 
-Returns the address of the nbnIndex. nbnIndex is used to create DSAs and assigns the first owner in this owner.
+Returns the address of the nbnIndex. NbnIndex is used to create smart accounts and assigns the first owner.
 
 ### Version
 
@@ -54,13 +54,13 @@ uint public constant version = 2;
 
 Returns the version of the DSA contract.
 
-### isAuth
+### IsAuth
 
 ```text
 function isAuth(address user) public view returns (bool);
 ```
 
-Used to check if user has control over a DSA. It returns a boolean value, true if it is an authority false otherwise.
+Used to check if user has control over a DSA. It returns a boolean value, true if it is an authority false if otherwise.
 
 #### Parameters
 
@@ -70,13 +70,13 @@ Used to check if user has control over a DSA. It returns a boolean value, true i
 
 ## State-changing methods
 
-### enable
+### Enable
 
 ```text
 function enable(address user) public;
 ```
 
-Adds an address as a new authority. user must not already be an authority else the transaction reverts. This gives user complete control over a DSA.
+Adds an address as a new authority. _user_ must not already be an authority else the transaction reverts. This gives _user_ complete control over a DSA.
 
 #### Parameters
 
@@ -90,7 +90,7 @@ Adds an address as a new authority. user must not already be an authority else t
 function disable(address user) public;
 ```
 
-Removes an address from the authorities of a DSA. The address must already be an authority, or else the transaction is reverted. This removes all rights over a DSA from user.
+Removes an address from the authorities of a smart account. The address must already be an authority, or else the transaction is reverted. This removes all rights over a smart account from _user_.
 
 #### Parameters
 

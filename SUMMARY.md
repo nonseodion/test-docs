@@ -6,15 +6,15 @@
 
 * [DSA Introduction](dsa/dsa-introduction.md)
 * [DSA Contracts](dsa/dsa-contracts.md)
+* [Registry](dsa/registry/README.md)
+  * [NbnIndex](dsa/registry/nbnindex.md)
+  * [NbnList](dsa/registry/nbnlist.md)
 * [Core](dsa/core/README.md)
   * [NbnAccountV2](dsa/core/nbnaccountv2.md)
   * [NbnImplementations](dsa/core/nbnimplementations.md)
-* [Implementations](dsa/implementations/README.md)
-  * [NbnImplementationM1](dsa/implementations/nbnimplementationm1.md)
+* [Account Extensions](dsa/implementations/README.md)
   * [NbnDefaultImplementation](dsa/implementations/nbndefaultimplementation.md)
-* [Registry](dsa/registry/README.md)
-  * [NbnList](dsa/registry/nbnlist.md)
-  * [NbnIndex](dsa/registry/nbnindex.md)
+  * [NbnImplementationM1](dsa/implementations/nbnimplementationm1.md)
 
 ## Connectors
 

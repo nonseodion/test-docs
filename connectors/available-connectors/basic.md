@@ -4,7 +4,7 @@ Basic handles user deposits and withdrawals on the DeFi Smart Account \(DSA\).
 
 ## Address
 
-Basic Connector is deployed at 0xC2e1c0fc0A2c0126AD5222D6eB2453c6aEc1e637 on mainnet.
+Basic Connector is deployed on [mainnet](https://bscscan.com/address/0xC2e1c0fc0A2c0126AD5222D6eB2453c6aEc1e637).
 
 ## Code
 
@@ -15,18 +15,18 @@ Basic Connector is deployed at 0xC2e1c0fc0A2c0126AD5222D6eB2453c6aEc1e637 on mai
 ### LogDeposit
 
 ```text
-    event LogDeposit(address indexed erc20, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogDeposit(address indexed erc20, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted when there is a deposit with [Deposit]().
+Emitted when there is a deposit with [Deposit](basic.md#Deposit).
 
 ### LogWithdraw
 
 ```text
-    event LogWithdraw(address indexed erc20, uint256 tokenAmt, address indexed to, uint256 getId uint256 setId);
+event LogWithdraw(address indexed erc20, uint256 tokenAmt, address indexed to, uint256 getId uint256 setId);
 ```
 
-Emitted when there is a withdrawal with [Withdraw]().
+Emitted when there is a withdrawal with [Withdraw](basic.md#Withdraw).
 
 ## Methods
 
@@ -43,12 +43,12 @@ Returns connector name.
 #### Deposit <a id="Deposit"></a>
 
 ```text
-    function deposit(
-        address token,
-        uint256 amt,
-        uint256 getId,
-        uint256 setId
-    ) public payable returns (string memory _eventName, bytes memory _eventParam);
+function deposit(
+    address token,
+    uint256 amt,
+    uint256 getId,
+    uint256 setId
+) public payable returns (string memory _eventName, bytes memory _eventParam);
 ```
 
 Deposits into DSA
@@ -65,13 +65,13 @@ Deposits into DSA
 #### Withdraw <a id="Withdraw"></a>
 
 ```text
-    function withdraw(
-        address token,
-        uint amt,
-        address payable to,
-        uint getId,
-        uint setId
-    ) public payable returns (string memory _eventName, bytes memory _eventParam);
+function withdraw(
+    address token,
+    uint amt,
+    address payable to,
+    uint getId,
+    uint setId
+) public payable returns (string memory _eventName, bytes memory _eventParam);
 ```
 
 Withdraws from DSA.

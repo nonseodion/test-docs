@@ -4,7 +4,7 @@ Allows users to deposit and withdraw tokens in AutoFarm vaults in order to earn 
 
 ## Address
 
-Autofarm connector is deployed at 0x82aB4bCD90E99f31a90201669AACC6867c9c3B77 on mainnet.
+Autofarm connector is deployed on [mainnet](https://bscscan.com/address/0x82aB4bCD90E99f31a90201669AACC6867c9c3B77).
 
 ## Events
 
@@ -14,7 +14,7 @@ Autofarm connector is deployed at 0x82aB4bCD90E99f31a90201669AACC6867c9c3B77 on 
 event LogDeposit( address lpToken, uint256 amount, uint256 poolId, uint256 getId, uint256 setId);
 ```
 
-Emitted when there is a deposit with [Deposit]().
+Emitted when there is a deposit with [Deposit](autofarm.md#Deposit).
 
 ### LogWithdraw
 
@@ -22,7 +22,7 @@ Emitted when there is a deposit with [Deposit]().
 event LogWithdraw( uint256 amount, uint256 poolId, uint256 getId, uint256 setId);
 ```
 
-Emitted wheb there is a withdrawal with [Withdraw]() or [Harvest]().
+Emitted when there is a withdrawal with [Withdraw](autofarm.md#Withdraw) or [Harvest](autofarm.md#Harvest).
 
 ## Code
 
@@ -103,6 +103,6 @@ Allows users to collect pending rewards on their deposits.
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | poolId | `uint256` | Pool Id of Autofarm vault. |
-| getId | `uint256` | Nor used. Pass 0. |
+| getId | `uint256` | Not used. Pass 0. |
 | setId | `uint256` | Not used. Pass 0. |
 

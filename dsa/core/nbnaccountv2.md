@@ -38,9 +38,9 @@ It delegates a function call to the implementation \(account extension\). It use
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| implementation | `address` | The address of the contract which implements the function called. |
+| implementation | `address` | The address of the contract which implements the called function. |
 
-### \_Fallback <a id="_Fallback"></a>
+### \_fallback <a id="_Fallback"></a>
 
 ```text
   function _fallback(bytes4 _sig) internal
@@ -60,7 +60,7 @@ Retrieves the address of the extension which implements the function with functi
 fallback () external payable
 ```
 
-Fallback function that passes the function signature, `msg.sig` to [\_Fallback]() to delegate the call.
+Fallback function that passes the function signature, `msg.sig` to [\_fallback](nbnaccountv2.md#_Fallback) to delegate the call.
 
 ### Receive
 
@@ -68,5 +68,5 @@ Fallback function that passes the function signature, `msg.sig` to [\_Fallback](
 receive () external payable
 ```
 
-Fallback function that calls [Fallback]() if a function is called on the DSA.
+Fallback function that calls [Fallback](nbnaccountv2.md#Fallback) if a function is called on the DSA.
 

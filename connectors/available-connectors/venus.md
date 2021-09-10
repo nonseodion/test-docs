@@ -1,10 +1,10 @@
 # Venus
 
-Provides functions to deposit, withdraw, borrow, and pay tokens and liquidate borrow positions. It provides raw functions that require the caller to provide a vToken and an underlying token address and normal functions that resolves the addresses from a provided tokenId. See the tokenIds with their corresponding tokens and vTokens in the TokenId [table]().
+Provides functions to deposit, withdraw, borrow, and pay tokens and liquidate borrow positions. It provides raw functions that require the caller to provide a vToken and an underlying token address and normal functions that resolves the addresses from a provided tokenId. See the tokenIds with their corresponding tokens and vTokens in the TokenId [table](venus.md#TokenIds).
 
 ## Address
 
-Venus Connector is deployed at 0xB03308Fa6A1Ecb489ECC86B7e930491020ee2b96 on mainnet.
+Venus Connector is deployed on [mainnet](https://bscscan.com/address/0x4ffcfd0f62352e33bb02710fd4c7d2049644b13d).
 
 ## Code
 
@@ -15,64 +15,62 @@ Venus Connector is deployed at 0xB03308Fa6A1Ecb489ECC86B7e930491020ee2b96 on mai
 ### LogDeposit
 
 ```text
-    event LogDeposit( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogDeposit( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a deposit occurs with [Deposit]() or [DepositRaw]().
+Emitted with other spell events each time a deposit occurs with [Deposit](venus.md#Deposit) or [DepositRaw](venus.md#DepositRaw).
 
 ### LogWithdraw
 
 ```text
-    event LogWithdraw( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogWithdraw( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a withdrawal occurs with [Withdraw]() or [WithdrawRaw]()
+Emitted with other spell events each time a withdrawal occurs with [Withdraw](venus.md#WithdrawRaw) or [WithdrawRaw](venus.md#WithdrawRaw)
 
 ### LogBorrow
 
 ```text
-    event LogBorrow( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogBorrow( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a borrow occurs with [Borrow]() or [BorrowRaw]()
+Emitted with other spell events each time a borrow occurs with [Borrow](venus.md#Borrow) or [BorrowRaw](venus.md#BorrowRaw)
 
 ### LogPayback
 
 ```text
-    event LogPayback( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogPayback( address indexed token, address vToken, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a payback occurs with [Payback]() or [PaybackRaw]()
+Emitted with other spell events each time a payback occurs with [Payback](venus.md#Payback) or [PaybackRaw](venus.md#PaybackRaw)
 
 ### LogDepositVToken
 
 ```text
-    event LogDepositVToken( address indexed token, address vToken, uint256 tokenAmt, uint256 vTokenAmt, uint256 getId, uint256 setId);
+event LogDepositVToken( address indexed token, address vToken, uint256 tokenAmt, uint256 vTokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a deposit occurs with [DepositVToken]() or [DepositVTokenRaw]().
+Emitted with other spell events each time a deposit occurs with [DepositVToken](venus.md#DepositVToken) or [DepositVTokenRaw](venus.md#DepositVTokenRaw).
 
 ### LogWithdrawVToken
 
 ```text
-    event LogWithdrawVToken( address indexed token, address vToken, uint256 tokenAmt, uint256 vTokenAmt, uint256 getId, uint256 setId);
+event LogWithdrawVToken( address indexed token, address vToken, uint256 tokenAmt, uint256 vTokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a withdrawal occurs with [WithdrawVToken]() or [WithdrawVTokenRaw]().
+Emitted with other spell events each time a withdrawal occurs with [WithdrawVToken](venus.md#WithdrawVToken) or [WithdrawVTokenRaw](venus.md#WithdrawVToken).
 
 ### LogLiquidate
 
 ```text
-    event LogLiquidate( address indexed borrower, address indexed tokenToPay, address indexed tokenInReturn, uint256 tokenAmt, uint256 getId, uint256 setId);
+event LogLiquidate( address indexed borrower, address indexed tokenToPay, address indexed tokenInReturn, uint256 tokenAmt, uint256 getId, uint256 setId);
 ```
 
-Emitted with other spell events each time a liquidation occurs with [Liquidate]() or [LiquidateRaw]().
+Emitted with other spell events each time a liquidation occurs with [Liquidate](venus.md#Liquidate) or [LiquidateRaw](venus.md#LiquidateRaw).
 
-## Methods
+## Read-only Method
 
-### Read-only Method
-
-#### Name
+### Name
 
 ```text
 string public name = "Venus-v1";
@@ -80,9 +78,9 @@ string public name = "Venus-v1";
 
 Returns "Venus-v1" as the name of this function.
 
-### State-changing Methods
+## State-changing Methods
 
-#### DepositRaw <a id="DepositRaw"></a>
+### DepositRaw
 
 ```text
     function depositRaw(
@@ -128,7 +126,7 @@ Deposit token to Venus to earn interest. Depositor gets vTokens.
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount deposited. Pass 0 if unsure of its value. |
 
-#### WithdrawRaw <a id="WithdrawRaw"></a>
+### WithdrawRaw
 
 ```text
     function withdrawRaw(
@@ -152,7 +150,7 @@ Withdraw tokens from Venus with interest earned. The account making the withdraw
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount withdrawn. Pass 0 if unsure of its value. |
 
-#### Withdraw <a id="Withdraw"></a>
+### Withdraw
 
 ```text
     function withdraw(
@@ -186,6 +184,8 @@ Withdraw tokens from Venus with interest earned. The account making the withdraw
     ) public payable returns (string memory _eventName, bytes memory _eventParam);
 ```
 
+### 
+
 Borrow token from Venus. The amount borrowed must be less than the user's Account Liquidity and the market's available liquidity.
 
 **BorrrowRaw Parameters**
@@ -198,7 +198,7 @@ Borrow token from Venus. The amount borrowed must be less than the user's Accoun
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount borrowed. Pass 0 if unsure of its value. |
 
-#### Borrow <a id="Borrow"></a>
+### Borrow
 
 ```text
     function borrow(
@@ -220,7 +220,7 @@ Borrow token from Venus. The amount borrowed must be less than the user's Accoun
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount borrowed. Pass 0 if unsure of its value. |
 
-#### PaybackRaw <a id="PaybackRaw"></a>
+### PaybackRaw
 
 ```text
     function paybackRaw(
@@ -244,7 +244,7 @@ Payback tokens borrowed from Venus.
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount payed back. Pass 0 if unsure of its value. |
 
-#### Payback <a id="Payback"></a>
+### Payback
 
 ```text
     function payback(
@@ -266,7 +266,7 @@ Payback tokens borrowed from Venus.
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the amount payed back. Pass 0 if unsure of its value. |
 
-#### DepositVTokenRaw <a id="DepositVTokenRaw"></a>
+### DepositVTokenRaw
 
 ```text
     function depositVTokenRaw(
@@ -309,7 +309,7 @@ Check [Deposit]() function for the other parameters.
 | :--- | :--- | :--- |
 | setId | `uint256` | ID to store the amount of vTokens received. |
 
-#### WithdrawVTokenRaw <a id="WithdrawVTokenRaw"></a>
+### WithdrawVTokenRaw
 
 ```text
     function withdrawVTokenRaw(
@@ -360,7 +360,7 @@ Check the [Withdraw]() function for other parameters.
 | vTokenAmt | `uint256` | The amount of vTokens to redeem for the underlying token. |
 | getId | `uint256` | ID to get the amount of vTokens to withdraw. |
 
-#### LiquidateRaw <a id="LiquidateRaw"></a>
+### LiquidateRaw
 
 ```text
     function liquidateRaw(
@@ -390,7 +390,7 @@ Liquidate an accounts borrow position on Venus. The account's liquidity must be 
 | getId | `uint256` | ID to get amt. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to store the actual amount of tokenToPay used to pay for liquidation. Pass 0 if unsure of its value. |
 
-#### Liquidate <a id="Liquidate"></a>
+### Liquidate
 
 ```text
     function liquidateRaw(

@@ -4,7 +4,7 @@ Allows a user to stake and unstake Nubian tokens.
 
 ## Address
 
-Nubian\_staking Connector is deployed at 0x0764C090a14E45Ae23F69732BeB28504f89D669A on mainnet.
+Nubian staking Connector is deployed on [mainnet.](https://bscscan.com/address/0x0764C090a14E45Ae23F69732BeB28504f89D669A)
 
 ## Code
 
@@ -15,24 +15,22 @@ Nubian\_staking Connector is deployed at 0x0764C090a14E45Ae23F69732BeB28504f89D6
 ### LogDeposit
 
 ```text
-    event LogDeposit( uint256 recordId, uint256 amt, uint256 getId, uint256 setId);
+event LogDeposit( uint256 recordId, uint256 amt, uint256 getId, uint256 setId);
 ```
 
-Emitted each time a deposit occurs with \[Deposit\]{\#Deposit}.
+Emitted each time a deposit occurs with [Deposit](nubian-staking.md#deposit).
 
 ### LogWithdraw
 
 ```text
-    event LogWithdraw( address indexed user, uint256 recordId, uint256 amt, uint256 reward, uint256 getId, uint256 setId);
+event LogWithdraw( address indexed user, uint256 recordId, uint256 amt, uint256 reward, uint256 getId, uint256 setId);
 ```
 
-Emitted each time a withdrawal occurs with \[Withdraw\]{\#Withdraw}.
+Emitted each time a withdrawal occurs with Withdraw.
 
-## Methods
+## Read-only method
 
-### Read-only method
-
-#### Name
+### Name
 
 ```text
 string public name = "NubianStaking-v1";
@@ -40,17 +38,17 @@ string public name = "NubianStaking-v1";
 
 Returns connector name.
 
-### State-changing methods
+## State-changing methods
 
-#### Deposit <a id="Deposit"></a>
+### Deposit
 
 ```text
-    function deposit(
-        uint256 amt,
-        uint256 lockPeriod,
-        uint256 getId,
-        uint256 setId
-    ) public payable returns (string memory _eventName, bytes memory _eventParam);
+function deposit(
+    uint256 amt,
+    uint256 lockPeriod,
+    uint256 getId,
+    uint256 setId
+) public payable returns (string memory _eventName, bytes memory _eventParam);
 ```
 
 Stakes Nubian tokens for a certain period to earn nubian rewards. It logs the recordId associated with each stake.
@@ -64,7 +62,7 @@ Stakes Nubian tokens for a certain period to earn nubian rewards. It logs the re
 | getId | `uint256` | ID to get `amt`. Pass 0 if unsure of its value. |
 | setId | `uint256` | ID to set amount staked. Pass 0 if unsure of its value. |
 
-#### Withdraw <a id="Withdraw"></a>
+### Withdraw
 
 ```text
     function withdraw(

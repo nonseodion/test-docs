@@ -8,7 +8,7 @@ NbnList is deployed on [mainnet](https://bscscan.com/address/0x58f4D59E4D4A97758
 
 ## Code
 
-[index.sol](https://github.com/Open-Currency-Collective/nubian-dsa-contracts/blob/master/contracts/registry/list.sol)
+[list.sol](https://github.com/Open-Currency-Collective/nubian-dsa-contracts/blob/master/contracts/registry/list.sol)
 
 ## State-Changing Methods
 
@@ -26,7 +26,7 @@ Gives a DSA its initial configuration.
 | :--- | :--- | :--- |
 | \_account | `address` | The DSA address. |
 
-### addAuth
+### AddAuth
 
 ```text
 function addAuth(address _owner) external;
@@ -40,7 +40,7 @@ Adds _\_owner_ as an authority over the DSA that calls it. _\_owner_ must not al
 | :--- | :--- | :--- |
 | \_owner | `address` | The new authority. |
 
-### removeAuth
+### RemoveAuth
 
 ```text
 function removeAuth(address _owner) external;

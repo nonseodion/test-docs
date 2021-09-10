@@ -1,10 +1,10 @@
 # NbnImplementationM1
 
-Adds the [connectors](../../connectors/connector) functionality to the DSA. This extension is used to interact with connectors. Connectors allow DSAs to interact with DeFi protocols. All function calls to connectors are called spells and this extension routes the spell to the right connector. These spells can be combined together to perform complex to simple behaviours in a single transaction. To integrate with a new DeFi protocol simply requires a connector for that protocol to be added. We encourage developers to build connectors or request for the addition of new connectors. Check [how to add a connector](../../connectors/add-connector) for more information.
+Adds the [connectors](../../connectors/connector) functionality to the DSA. This extension is used to interact with connectors. Connectors allow DSAs to interact with DeFi protocols. All function calls to connectors are called spells and this extension routes the spell to the right connector. These spells can be combined together to perform complex to simple behaviours in a single transaction. To integrate with a new DeFi protocol simply requires a connector for that protocol to be added. We encourage developers to build connectors or request for the addition of new connectors. Check [how to add a connector](../../connectors/how-to-add-a-connector.md) for more information.
 
 ## Address
 
-Autofarm connector is deployed on [mainnet](https://bscscan.com/address/0x600f5FF527832c7dc768b4327E163d23804eCc27).
+Autofarm connector is deployed on [mainnet](https://bscscan.com/address/0xd29aFdfBCad1C249b0c69Eb2785b08353029282B).
 
 ## Events
 
@@ -22,7 +22,7 @@ event LogCast(
 );
 ```
 
-Emitted when spells are cast i.e when the \[cast\]{\#Cast} is called. It combines all the events from each connector and emits them once. This saves gas cost and allows for a single point of reference.
+Emitted when spells are cast i.e when [cast](nbnimplementationm1.md#Cast) is called. It combines all the events from each connector and emits them once. This saves gas cost and allows for a single point of reference.
 
 ## Code
 
@@ -36,9 +36,9 @@ Emitted when spells are cast i.e when the \[cast\]{\#Cast} is called. It combine
 address internal immutable nbnIndex;
 ```
 
-Returns the address of nbnIndex. nbnIndex is used to cast a spell during the creation using this implementation.
+Returns the address of NbnIndex. NbnIndex can cast a spell during smart account creation using this extension.
 
-### ConnctorsM1
+### ConnectorsM1
 
 ```text
 address public immutable connectorsM1;
@@ -52,13 +52,17 @@ Returns the address of the connectors contract, this contract has a record of al
 function decodeEvent(bytes memory response) internal pure returns (string memory _eventCode, bytes memory _eventParams)
 ```
 
-Used to retrieve an event's name and parameters from an abi encoded response.
+Used to retrieve an event's name and parameters from an abi encoded response. Spells return their events in an abi encoded format.
+
+|  |
+| :--- |
+
 
 #### Parameter
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| response | `bytes` | Abi encoded return value from a spell. Spells return the response they receive from their target connector. The response is a abi encoded events. |
+| response | `bytes` | Abi encoded return value from a spell.  |
 
 ## State-changing methods
 
@@ -68,7 +72,7 @@ Used to retrieve an event's name and parameters from an abi encoded response.
 function spell(address _target, bytes memory _data) internal returns (bytes memory response);
 ```
 
-Used to cast an individual spell by delegating to \_target and passing the parameters. It does this using assembly code.
+Used to cast an individual spell by delegating to _\_target_ and passing the parameters. It does this using assembly code.
 
 #### Parameters
 
@@ -90,7 +94,7 @@ payable
 returns (bytes32)
 ```
 
-It casts all the spells it receives using [spell]() and logs their events once using [LogCast]().
+It casts all the spells it receives using [spell](nbnimplementationm1.md#Spell) and logs their events once using [LogCast](nbnimplementationm1.md#LogCast).
 
 #### Parameters
 

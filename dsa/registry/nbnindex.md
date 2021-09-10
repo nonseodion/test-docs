@@ -1,10 +1,10 @@
 # NbnIndex
 
-It deploys new DSA contracts and stores a master address that governs the whole Nubian ecosystem. The master address can add new connectors and extensions. It stores the available account modules or versions.
+It deploys new DSA contracts and stores a master address that governs the whole Nubian ecosystem. The master address can add new connectors and extensions. It also stores the available account modules or versions.
 
 ## Address
 
-NbnIndex is deployed on [mainnet](https://bscscan.com/address/0xfDE04Da1560c238EDBC07Df1779A8593C39103Bc).
+NbnIndex is deployed on [mainnet](https://bscscan.com/address/0xC558A66098EFB3314E681F74f5bB08c396257D18).
 
 ## Code
 
@@ -15,10 +15,10 @@ NbnIndex is deployed on [mainnet](https://bscscan.com/address/0xfDE04Da1560c238E
 ### LogNewMaster
 
 ```text
-  event LogNewMaster(address indexed master);
+event LogNewMaster(address indexed master);
 ```
 
-Emitted when master address is changed with changeMaster.
+Emitted when master address is changed with [changeMaster](nbnindex.md#changemaster).
 
 ### LogUpdateMaster
 
@@ -26,7 +26,7 @@ Emitted when master address is changed with changeMaster.
 event LogUpdateMaster(address indexed master);
 ```
 
-Emitted when master address is updated with updateMaster.
+Emitted when master address is updated with [updateMaster](nbnindex.md#updatemaster).
 
 ### LogNewCheck
 
@@ -34,7 +34,7 @@ Emitted when master address is updated with updateMaster.
 event LogNewCheck(uint indexed accountVersion, address indexed check);
 ```
 
-Emitted when a new check is added for an account's version.
+Emitted when a new check is added for an account's version with [changeCheck](nbnindex.md#changecheck).
 
 ### LogNewAccount
 
@@ -42,7 +42,7 @@ Emitted when a new check is added for an account's version.
 event LogNewAccount(address indexed _newAccount, address indexed _connectors, address indexed _check);
 ```
 
-Emitted when a new account module is added.
+Emitted when a new account module is added with [addNewAccount](nbnindex.md#addnewaccount).
 
 ### LogAccountCreated
 
@@ -50,7 +50,7 @@ Emitted when a new account module is added.
 event LogAccountCreated(address sender, address indexed owner, address indexed account, address indexed origin);
 ```
 
-Emitted when a new Account is created.
+Emitted when a new Account is created with [build](nbnindex.md#Build).
 
 ## Read-only methods
 
@@ -60,7 +60,7 @@ Emitted when a new Account is created.
 address private newMaster;
 ```
 
-Returns the address of a newMaster. newMaster is set when changeMaster is called and is set to a null address when updateMaster is called. This requires the newMaster to explicitly call the contract to assume control.
+Returns the address of newMaster. newMaster is set when changeMaster is called and is set to a null address when updateMaster is called. This requires the newMaster to explicitly call the contract to assume control.
 
 ### Master
 
@@ -76,7 +76,7 @@ Returns the address of the master contract.
 address public list;
 ```
 
-Returns the address of NbnList.
+Returns the address of [NbnList](nbnlist.md).
 
 ### Connectors
 
@@ -90,7 +90,7 @@ Returns the address holding the DSA version's connector registry.
 
 | Type | Description |
 | :--- | :--- |
-| `uint` | The DSA version. |
+| `uint` | The smart account version. |
 
 ### Check
 
@@ -104,7 +104,7 @@ Returns the check for a DSA version.
 
 | Type | Description |
 | :--- | :--- |
-| `uint` | The DSA version. |
+| `uint` | The smart account version. |
 
 ### Account
 
@@ -118,7 +118,7 @@ Returns the address of a DSA version. The contract at this address is used to pr
 
 | Type | Description |
 | :--- | :--- |
-| `uint` | The DSA version. |
+| `uint` | The smart account version. |
 
 ### VersionCount
 
@@ -134,11 +134,11 @@ Returns the number of DSA versions available.
   function createClone(uint version) internal returns (address result)
 ```
 
-Creates a clone of version.
+Creates a clone of _version_.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| version | `uint` | Creates a clone of version _version_ of the account modules. |
+| version | `uint` | Creates a clone of version. |
 
 ### IsClone
 
@@ -161,7 +161,7 @@ Checks if account at _query_ is a clone of _version_.
 function changeMaster(address _newMaster) external isMaster {
 ```
 
-This assigns \_newMaster to the newMaster state variable. It does not immediately make \_newMaster the master but requires it to explicility take control by itself by calling updateMaster.
+This assigns _\_newMaster_ to the _newMaster_ state variable. It does not immediately make _\_newMaster_ the master but requires it to explicility take control by itself by calling [updateMaster](nbnindex.md#updatemaster).
 
 #### Parameter
 
@@ -183,7 +183,7 @@ This is called by newMaster to make itself the new master.
 function changeCheck(uint accountVersion, address _newCheck) external isMaster;
 ```
 
-Changes the check address of a specific account Module version.
+Changes the check address of an account version.
 
 #### Parameter
 
@@ -217,7 +217,7 @@ function build(
 ) public returns (address _account);
 ```
 
-Creates a new DSA of version _accountVersion_ with _\_owner_ as the owner.
+Creates a new DSA of version _accountVersion_ with _\_owner_  as an authority.
 
 #### Parameters
 
@@ -225,7 +225,7 @@ Creates a new DSA of version _accountVersion_ with _\_owner_ as the owner.
 | :--- | :--- | :--- |
 | \_owner | `address` | Owner of the new DSA. |
 | accountVersion | `uint` | The version of the new DSA. |
-| \_origin | `address` | The address to track the origin of transaction. Used for analytics and affiliates.. |
+| \_origin | `address` | The address to track the transaction origin. Used for analytics and affiliates. |
 
 ### BuildWithCast
 
@@ -243,12 +243,12 @@ Creates a new DSA and cast spells.
 
 #### Parameters
 
-Check Build for the other parameters.
+Check [Build](nbnindex.md#Build) for the other parameters.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| \_targets | `address[]` | Addresses of connectors to be called in spell. |
-| \_datas | `bytes[]` | Data to be passed to corressponding connectors in  _\_targets_ array. |
+| \_targets | `address[]` | Addresses of connectors to be called in the spell. |
+| \_datas | `bytes[]` | Data passed to corresponding connectors in  _\_targets_ array. |
 
 ### SetBasics
 
@@ -270,5 +270,7 @@ Sets up initial properties of the contract and can only be called once after the
 | \_master | `address` | The master address. |
 | \_list | `address` | The NbnList address. |
 | \_account | `address` | The address of DSA version 1. |
-| \_connectors | `address` | The connectors registry. Manages the available connectors. |
+| \_connectors | `address` | The connectors registry. The registry manages the available connectors. |
+
+
 
